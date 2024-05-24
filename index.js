@@ -1,6 +1,6 @@
 // console.log('script connected');check
 
-const apiEp = 'https://randomuser.me/api?results=2';
+const apiEp = 'https://randomuser.me/api?results=6';
 
 let userList = [];
 // slide to next (app) screen
@@ -119,7 +119,7 @@ const displayContList = (userList) => {
           </div>
           <div>
             <a href="https://www.google.com/maps/place/${item.location.street.number} ${item.location.street.name}" target="_blank">
-              <i class="bi bi-globe-asia-australia"></i> ${item.location.street.number} ${item.location.street.name}
+              <i class="bi bi-globe-asia-australia"></i> ${item.location.street.number} ${item.location.street.name}${item.location.state}
             >
           </div>
         </div>
@@ -130,3 +130,17 @@ const displayContList = (userList) => {
 
   document.getElementById('accordionExample').innerHTML = str;
 };
+
+// searchContact
+
+document.getElementById('search').addEventListener('keyup', (e) => {
+  // console.log(e);
+  const { value } = e.target;
+  // console.log(value);
+
+  const filteredContact = userList.filter((item) => {
+    const name = (item.name.first + '' + item.name.last).toLowerCase();
+    return name.includes(value.toLowerCase());
+  });
+  displayContList(filteredContact);
+});
