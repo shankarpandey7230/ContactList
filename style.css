@@ -72,3 +72,7 @@ a {
     filter: drop-shadow(0 0 10px purple);
   }
 }
+
+.header i {
+  right: 15px;
+}
