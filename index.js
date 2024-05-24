@@ -1,6 +1,6 @@
 // console.log('script connected');check
 
-const apiEp = 'https://randomuser.me/api?results=6';
+const apiEp = 'https://randomuser.me/api?results=2';
 
 let userList = [];
 // slide to next (app) screen
@@ -129,6 +129,7 @@ const displayContList = (userList) => {
   });
 
   document.getElementById('accordionExample').innerHTML = str;
+  document.getElementById('userCount').innerText = userList.length;
 };
 
 // searchContact
