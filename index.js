@@ -28,6 +28,13 @@ const displayAppScreen = () => {
   document.querySelector('.appScreen').style.display = 'block';
 };
 
+const displayContactScreen = () => {
+  document.querySelector('.appScreen').remove();
+  document.querySelector('.contactListScreen').style.display = 'block';
+
+  fetchContacts(apiEp);
+};
+
 const fetchContacts = async (url) => {
   // fetch contacts
   // promise method
@@ -56,8 +63,6 @@ const fetchContacts = async (url) => {
   // display contacts
   displayContList(userList);
 };
-fetchContacts(apiEp);
-
 // displayContact List
 
 const displayContList = (userList) => {
